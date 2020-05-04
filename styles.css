@@ -1,6 +1,7 @@
 body {
   font-family:"Arial", monospace;
   background-image:url("background.png");
+  color: white;
 }
 
 h1 {
