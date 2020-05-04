@@ -3,3 +3,7 @@ body {
   background-image:url("background.png");
 }
 
+#main {
+  text-align:center;
+}
+
