@@ -1,8 +1,11 @@
 body {
   background-image:url("background.png");
   font-family:"Arial", monospace;
-  text-align: center;
-  color: white;
+}
+
+h1 {
+   text-align: center;
+   color: white;
 }
 
 
