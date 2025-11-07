@@ -24,6 +24,8 @@
             margin: 0;
             color: white;
             text-align: center;
+            padding: 1rem;
+            box-sizing: border-box;
         }
         
         @keyframes gradientAnimation {
@@ -47,6 +49,8 @@
             display: flex;
             gap: 15px;
             margin-top: 13px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .socials a {
@@ -69,6 +73,57 @@
         .socials a:hover {
             background: rgba(255, 255, 255, 0.4);
         }
+
+        /* Styles for the URL Opener Form */
+        #urlForm {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 90%;
+            max-width: 460px;
+        }
+
+        #urlInput {
+            width: 100%;
+            height: 40px;
+            padding: 5px 20px;
+            font-family: 'SF Pro', sans-serif;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #urlInput::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        #urlInput:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #urlButton {
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'SF Pro', sans-serif;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        #urlButton:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -77,11 +132,38 @@
     <p>
     Welcome!
     </p>
+    
     <div class="socials">
         <a href="https://www.ebay.com/usr/karmen.28" target="_blank" rel="noopener noreferrer">🛍️&nbsp;&nbsp;eBay</a>
         <a href="https://x.com/hashbrun444" target="_blank" rel="noopener noreferrer">🐦&nbsp;&nbsp;Twitter</a>
         <a href="https://github.com/hashbrun444" target="_blank" rel="noopener noreferrer">👾&nbsp;&nbsp;GitHub</a>
         <a href="wip.html" target="_blank" rel="noopener noreferrer">📝&nbsp;&nbsp;More</a>
     </div>
+
+    <form id="urlForm">
+        <input 
+            type="url" 
+            id="urlInput" 
+            placeholder="Paste a URL to open it..." 
+            required
+        >
+        <button type="submit" id="urlButton">
+            Go
+        </button>
+    </form>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let url = document.getElementById('urlInput').value.trim();
+            if (url) {
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url;
+                }
+                window.location.href = url;
+            }
+        });
+    </script>
+
 </body>
 </html>
