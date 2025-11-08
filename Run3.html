@@ -11,23 +11,18 @@
             background-size: 400% 400%;
             animation: gradientAnimation 16s ease-in-out infinite;
         }
-        .player-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100vw;
-            background: transparent;
-        }
-        .ruffle-player {
-            width: 80vw;
-            height: 80vh;
+        #ruffle-player {
+            width: 800px;
+            height: 600px;
             max-width: 1200px;
             max-height: 800px;
             border-radius: 24px;
             box-shadow: 0 4px 24px rgba(30,58,138,0.12);
             background: rgba(255,255,255,0.08);
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .fullscreen-btn {
             margin-top: 16px;
@@ -49,24 +44,26 @@
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
-    <div class="player-container">
-        <div id="ruffle-player" class="ruffle-player"></div>
-        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
-            <button class="fullscreen-btn" onclick="fullscreenRuffle()">Fullscreen</button>
-            <a href="coolstuff.html"><button class="fullscreen-btn">Home</button></a>
-        </div>
+    <div id="ruffle-player"></div>
+    <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
+        <button class="fullscreen-btn" onclick="fullscreenRuffle()">Fullscreen</button>
+        <a href="coolstuff.html"><button class="fullscreen-btn">Home</button></a>
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            player.style.width = '100%';
-            player.style.height = '100%';
+            var ruffle = window.RufflePlayer.newest();
+            var player = ruffle.createPlayer();
+            player.width = 800;
+            player.height = 600;
+            player.style = 'width: 800px; height: 600px;';
             document.getElementById('ruffle-player').appendChild(player);
-            // Load the local SWF file using Ruffle
-            player.load('files/Run3.swf');
+
+            // Load with config object per your working example
+            player.load({ url: 'files/Run3.swf' });
+
             window.rufflePlayerInstance = player;
         });
+
         function fullscreenRuffle() {
             if (window.rufflePlayerInstance) {
                 window.rufflePlayerInstance.enterFullscreen();
