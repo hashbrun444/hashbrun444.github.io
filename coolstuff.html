@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Stuff</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(-45deg, #101014, #18181b, #101014);
+            background-size: 400% 400%;
+            animation: gradientAnimation 16s ease-in-out infinite;
+            min-height: 100vh;
+            margin: 0;
+            color: #e0e0e0;
+            font-family: 'SF Pro', sans-serif;
+        }
+        h1, .desc, .section-title, .games-list, .game-box, .game-btn, #urlInput, #urlButton, label, input, button, div, p {
+            font-family: 'SF Pro', sans-serif !important;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f5f5f5, #b0bec5, #23232a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.18);
+            letter-spacing: 1px;
+        }
+        .desc {
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+            color: #cfd8dc;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 28px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #urlForm {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+        }
+        #urlInput {
+            flex: 1;
+            height: 36px;
+            padding: 0 14px;
+            font-size: 16px;
+            background: rgba(30,30,34,0.7);
+            border-radius: 50px 0 0 50px;
+            border: none;
+            color: #e0e0e0;
+            box-sizing: border-box;
+            text-align: left;
+            outline: none;
+            transition: background 0.2s;
+            font-family: 'SF Pro', sans-serif;
+        }
+        #urlInput::placeholder {
+            color: #b0bec5;
+            opacity: 0.8;
+        }
+        #urlInput:focus {
+            background: rgba(40,40,44,0.9);
+        }
+        #urlButton {
+            height: 36px;
+            min-width: 70px;
+            background: linear-gradient(90deg, #23232a 0%, #18181b 100%);
+            border-radius: 0 50px 50px 0;
+            border: none;
+            color: #e0e0e0;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+            transition: background 0.2s;
+            font-family: 'SF Pro', sans-serif;
+        }
+        #urlButton:hover {
+            background: linear-gradient(90deg, #18181b 0%, #23232a 100%);
+            color: #fff;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f5f5f5;
+            letter-spacing: 0.5px;
+        }
+        .games-list {
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 10px;
+        }
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 12px;
+        }
+        .game-box {
+            background: rgba(20,20,24,0.98);
+            border-radius: 16px;
+            box-shadow: 
+                0 2px 12px rgba(0,0,0,0.18),
+                inset 0 1px 2px rgba(255,255,255,0.1),
+                inset 0 -1px 2px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.4);
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .game-btn {
+            margin-top: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: none;
+            color: #e0e0e0;
+            font-family: 'SF Pro', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+            transition: all 0.4s ease;
+            min-width: auto;
+            max-width: none;
+            flex: 0 1 auto;
+            white-space: nowrap;
+        }
+        .game-btn.game {
+            background: linear-gradient(90deg, #8B0000 0%, #4B0000 100%);
+            background-size: 200% 100%;
+            background-position: left;
+        }
+        .game-btn.game:hover {
+            background-position: right;
+            color: #fff;
+        }
+        .game-btn.link {
+            background: linear-gradient(90deg, #0a2342 0%, #1e3a8a 100%);
+            background-size: 200% 100%;
+            background-position: left;
+        }
+        .game-btn.link:hover {
+            background-position: right;
+            color: #fff;
+        }
+        .game-btn.main {
+            background: linear-gradient(90deg, #23232a 0%, #18181b 100%);
+            background-size: 200% 100%;
+            background-position: left;
+            color: #f5f5f5;
+        }
+        .game-btn.main:hover {
+            background-position: right;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; font-size:3rem; font-weight:600; margin-top:48px; margin-bottom:12px; background:linear-gradient(135deg,#eceff1,#b0bec5,#23232a);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:1px 1px 2px rgba(255,255,255,0.08);">Cool Stuff</h1>
+    <div class="form-container">
+        <form id="urlForm">
+            <input 
+                type="url" 
+                id="urlInput" 
+                placeholder="Type a URL to open it..." 
+                required
+            >
+            <button type="submit" id="urlButton">Go</button>
+        </form>
+    </div>
+    <div class="games-list">
+        <div class="game-box">
+            <div class="section-title">Games</div>
+            <div class="button-row">
+                <button class="game-btn game" onclick="window.location.href='Run3.html'">Run 3</button>
+                <button class="game-btn game" onclick="window.location.href='DuckLife1.html'">Duck Life 1</button>
+                <button class="game-btn game" onclick="window.location.href='DuckLife2.html'">Duck Life 2</button>
+                <button class="game-btn game" onclick="window.location.href='DuckLife3.html'">Duck Life 3</button>
+                <button class="game-btn game" onclick="window.location.href='DuckLife4.html'">Duck Life 4</button>
+            </div>
+        </div>
+        <div class="game-box">
+            <div class="section-title">Links</div>
+            <div class="button-row">
+                <button class="game-btn link" onclick="window.location.href='https://google.com'">Google</button>
+                <button class="game-btn link" onclick="window.location.href='https://duckduckgo.com'">DuckDuckGo</button>
+                <button class="game-btn link" onclick="window.location.href='https://player03.com/run/3/beta'">Run 3 (HTML)</button>
+                <button class="game-btn link" onclick="window.location.href='https://terbiumon.top'">Terbium</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let url = document.getElementById('urlInput').value.trim();
+            if (url) {
+                // Check if URL already has a protocol (http://, https://, etc.)
+                if (!url.match(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//)) {
+                    url = 'https://' + url;
+                }
+                window.location.href = url;
+            }
+        });
+    </script>
+    <div style="text-align:center; margin-top:32px;">
+    <a href="index.html"><button class="game-btn main">Main Page</button></a>
+    </div>
+</body>
+</html>

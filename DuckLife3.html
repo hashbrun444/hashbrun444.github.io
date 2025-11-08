@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck Life 3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: linear-gradient(-45deg, #18181b, #23232a, #18181b); background-size: 400% 400%; animation: gradientAnimation 16s ease-in-out infinite; }
+        .player-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw; background: transparent; }
+        .ruffle-player { width: 80vw; height: 80vh; max-width: 1200px; max-height: 800px; border-radius: 24px; box-shadow: 0 4px 24px rgba(30,58,138,0.12); background: rgba(255,255,255,0.08); }
+        .fullscreen-btn { margin-top: 16px; padding: 12px 24px; font-size: 1rem; border-radius: 16px; border: none; background: linear-gradient(90deg, #23232a 0%, #18181b 100%); color: #fff; font-family: 'SF Pro', sans-serif; cursor: pointer; box-shadow: 0 2px 8px rgba(30,58,138,0.08); transition: background 0.2s; }
+        .fullscreen-btn:hover { background: linear-gradient(90deg, #18181b 0%, #23232a 100%); }
+    </style>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+    <div class="player-container">
+        <div id="ruffle-player" class="ruffle-player"></div>
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
+            <button class="fullscreen-btn" onclick="fullscreenRuffle()">Fullscreen</button>
+            <a href="CoolStuff.html"><button class="fullscreen-btn">Home</button></a>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            player.style.width = '100%';
+            player.style.height = '100%';
+            document.getElementById('ruffle-player').appendChild(player);
+            player.load('files/DuckLife3.swf');
+            window.rufflePlayerInstance = player;
+        });
+        function fullscreenRuffle() {
+            if (window.rufflePlayerInstance) {
+                window.rufflePlayerInstance.enterFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
